@@ -1,0 +1,32 @@
+@use './styles';
+
+div.Card {
+  display: flex;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+  align-items: flex-start;
+  width: calc(100% - #{styles.layout-spacing(4)});
+  max-width: 720px;
+  height: 600px;
+  border-radius: styles.layout-radius(8);
+  padding: styles.layout-spacing(2);
+
+  @include styles.palette-get-background(background-primary);
+  @include styles.palette-get-foreground(foreground-primary);
+
+  > h2 {
+    flex: 0 0 auto;
+    display: inline-block;
+    margin: styles.layout-spacing(1);
+    padding: styles.layout-spacing(1);
+    @include styles.palette-get-foreground(foreground-primary);
+    border-bottom: styles.layout-border() solid styles.palette-color(foreground-graphics);
+  }
+
+  > div.content {
+    flex: 1 1 auto;
+    align-self: stretch;
+  }
+
+
+}

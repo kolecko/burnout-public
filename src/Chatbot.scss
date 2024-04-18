@@ -1,0 +1,47 @@
+@use './styles/forms';
+
+div.Chatbox {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: stretch;
+
+  .messages {
+    display: flex;
+    flex-flow: column-reverse;
+    overflow-y: scroll;
+    margin: 0 12px 12px 12px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+
+    .message {
+      max-width: 50%;
+      display: inline-block;
+      padding: 12px;
+      border-radius: 6px;
+
+      &.user {
+        align-self: flex-start;
+        background: #53e8d4;
+      }
+
+      &.bot {
+        align-self: flex-end;
+        background: #8921c2;
+        color: white;
+      }
+    }
+  }
+
+  .message-form {
+    display: flex;
+    margin: 12px;
+
+    .message-input {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+  }
+}
+

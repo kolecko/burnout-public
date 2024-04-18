@@ -1,0 +1,8 @@
+@use './styles';
+
+@import-normalize;
+
+body {
+    @include styles.fonts-font-family(roboto-condensed);
+    margin: 0;
+}

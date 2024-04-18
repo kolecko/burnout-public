@@ -1,0 +1,13 @@
+$grid-size: 6px;
+
+@function spacing($multiple: number) {
+  @return calc($grid-size * $multiple)
+}
+
+@function radius($multiple: number) {
+  @return calc($grid-size * $multiple / 2)
+}
+
+@function border() {
+  @return $grid-size / 3;
+}

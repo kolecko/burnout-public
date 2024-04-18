@@ -1,0 +1,75 @@
+$_palette: (
+  default: (
+    color: #000,
+    blend-mode: normal,
+    shadow: none,
+    backdrop-filter: none
+  ),
+  foreground-graphics: (
+    color: #fff,
+    blend-mode: hard-light,
+    shadow: 1px 1px 6px #53e8d4
+  ),
+  background-primary: (
+    color: #ffffffcc,
+    backdrop-filter: blur(10px),
+    shadow: 1px 1px 12px #53e8d4
+  ),
+  foreground-primary: (
+    color: #303030,
+  ),
+  background-accent: (
+    color: #53e8d4,
+    shadow: 1px 1px 24px #53e8d4
+  ),
+  foreground-accent: (
+    color: #8921c2,
+  ),
+);
+
+@function color($color: map-keys($_palette)) {
+  @return map-get(map-get($_palette, $color), color);
+}
+
+@function blend-mode($color: map-keys($_palette)) {
+  @return map-get(map-get($_palette, $color), blend-mode);
+}
+
+@function backdrop-filter($color: map-keys($_palette)) {
+  @if(map-has-key($_palette, $color)) {
+    @if(map-has-key(map-get($_palette, $color), backdrop-filter)) {
+      @return map-get(map-get($_palette, $color), backdrop-filter);
+    }
+
+    @return map-get(map-get($_palette, default), backdrop-filter);
+  }
+
+  @error "No backdrop-filter found for `#{$color}`.";
+}
+
+@function shadow($color: map-keys($_palette)) {
+  @if(map-has-key($_palette, $color)) {
+    @if(map-has-key(map-get($_palette, $color), shadow)) {
+      @return map-get(map-get($_palette, $color), shadow);
+    }
+
+    @return map-get(map-get($_palette, default), shadow);
+  }
+
+  @error "No shadow found for `#{$color}`.";
+}
+
+@mixin get-foreground($color) {
+  color: color($color);
+  mix-blend-mode: blend-mode($color);
+  text-shadow: shadow($color);
+}
+
+@mixin get-background($color) {
+  background: color($color);
+  mix-blend-mode: blend-mode($color);
+  backdrop-filter: backdrop-filter($color);
+  box-shadow: shadow($color);
+}
+
+

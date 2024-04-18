@@ -1,0 +1,23 @@
+form.ContactForm {
+  display: flex;
+  width: 100%;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  gap: 12px;
+  margin-bottom: 24px;
+
+  div.form-group {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: stretch;
+    align-items: center;
+
+    label {
+      width: 100px;
+    }
+
+    input, textarea {
+      flex: 1 1;
+    }
+  }
+}

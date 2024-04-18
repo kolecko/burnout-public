@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+$_fonts: (
+  bebas-neue: (
+    font-family: ['Bebas Neue', sans-serif],
+    allowed-weights: [400]
+  ),
+  roboto-condensed: (
+    font-family: ['Roboto Condensed', sans-serif],
+    allowed-weights: [300, 400, 600, 900],
+  )
+);
+
+@mixin font-family($font-name, $weight: 400) {
+  @if map-has-key($_fonts, $font-name) {
+    $font: map-get($_fonts, $font-name);
+
+    @if map-has-key($font, allowed-weights) {
+      $weights: map-get($font, allowed-weights);
+
+      @if index($weights, $weight) {
+        $font-family: map-get($font, font-family);
+        font-family: nth($font-family, 1), nth($font-family, 2);
+        font-weight: $weight;
+        font-optical-sizing: auto;
+      } @else {
+        @error "No allowed weight `#{$weight}` found for `#{$font-name}`.";
+      }
+    } @else {
+      @error "No allowed weights found for `#{$font-name}`.";
+    }
+  } @else {
+    @error "No font found for `#{$font-name}`.";
+  }
+
+}

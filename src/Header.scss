@@ -1,0 +1,41 @@
+@use './styles';
+
+header.Header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: auto;
+
+  menu {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: styles.layout-spacing(5);
+    margin-top: styles.layout-spacing(3);
+    margin-right: styles.layout-spacing(5);
+    justify-content: right;
+    list-style-type: none;
+    @include styles.palette-get-foreground(foreground-graphics);
+    font-size: 1.2rem;
+
+    li {
+      a {
+        padding: styles.layout-spacing(1);
+        border: styles.layout-border() solid styles.palette-color(foreground-graphics);
+        border-radius: styles.layout-radius(1);
+        box-shadow: styles.palette-shadow(background-primary);
+
+        &.primary {
+          @include styles.palette-get-background(background-primary);
+          color: styles.palette-color(foreground-accent)
+        }
+
+        &:hover {
+          background-color: styles.palette-color(background-primary);
+          border-color: styles.palette-color(background-accent);
+          box-shadow: styles.palette-shadow(background-accent);
+          color: styles.palette-color(foreground-accent);
+        }
+      }
+    }
+  }
+}

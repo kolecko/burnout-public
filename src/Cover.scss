@@ -1,0 +1,98 @@
+@use './styles';
+
+$horizontal-margin: styles.layout-spacing(2);
+
+section.Cover {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+
+  background-image: url('./assets/cat.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-x: center;
+
+  > div.title {
+    display: inline-block;
+    text-align: left;
+    margin-top: styles.layout-spacing(24);
+
+    > h1, p {
+      display: block;
+      margin: 0 auto;
+      clear: both;
+    }
+
+    > h1 {
+      @include styles.headline-styles();
+      @include styles.palette-get-foreground(foreground-graphics);
+
+      margin: styles.layout-spacing(9) $horizontal-margin styles.layout-spacing();
+    }
+
+    > p {
+      @include styles.palette-get-foreground(foreground-graphics);
+      @include styles.fonts-font-family(roboto-condensed, 300);
+      font-size: 2rem;
+      transition: opacity .2s linear, height .2s linear;
+
+      &.hidden {
+        opacity: 0;
+        height: 0;
+      }
+    }
+  }
+
+  > div.content {
+    position: relative;
+    text-align: left;
+    width: 100%;
+    top: calc(100% - #{styles.layout-spacing(12)});
+    transition: top .2s linear;
+
+    &.activated {
+      top: 0;
+    }
+
+    > * {
+      margin: 0 auto;
+    }
+  }
+
+  > div.next-action {
+    position: absolute;
+    bottom: styles.layout-spacing(2);
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    @include styles.palette-get-foreground(foreground-graphics);
+    font-size: 1.5rem;
+
+    &.hidden {
+      opacity: 0;
+    }
+
+    .arrow {
+      animation: bounce 2s infinite;
+      font-size: 24px;
+    }
+
+    .text {
+      margin-bottom: 10px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+  }
+}

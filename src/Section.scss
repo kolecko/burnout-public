@@ -1,0 +1,7 @@
+@use './styles';
+
+section.Section {
+  max-width: 800px;
+  width: calc(100% - #{styles.layout-spacing(4)});
+  margin: 0 auto;
+}
