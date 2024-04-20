@@ -6,6 +6,8 @@ import Header from './Header';
 import Chatbox from './Chatbox';
 import Section from './Section';
 import ContactForm from './ContactForm';
+import MiniCard from './MiniCard';
+import MasonryGrid from './MasonryGrid';
 
 function App() {
     return (
@@ -17,7 +19,13 @@ function App() {
                 </Card>
             </Cover>
             <Section title="About us" />
-            <Section title="About proces" />
+            <Section title="About proces">
+                <MasonryGrid>
+                    <MiniCard title="Who we are for" items={['Large enterprises', 'Teams with high exposure towards other teams', 'Companies with multiple branches or partners who frequently ask questions']}></MiniCard>
+                    <MiniCard title="Who we are for" items={['Large enterprises', 'Teams with high exposure towards other teams', 'Companies with multiple branches or partners who frequently ask questions']}></MiniCard>
+                    <MiniCard title="Who we are for" items={['Large enterprises', 'Teams with high exposure towards other teams', 'Companies with multiple branches or partners who frequently ask questions']}></MiniCard>
+                </MasonryGrid>
+            </Section>
             <Section title="Request live demo">
                 <ContactForm />
             </Section>
