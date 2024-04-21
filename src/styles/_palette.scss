@@ -1,6 +1,6 @@
 $_palette: (
   default: (
-    color: #000,
+    color: #ACACAC,
     blend-mode: normal,
     shadow: none,
     backdrop-filter: none
@@ -8,22 +8,22 @@ $_palette: (
   foreground-graphics: (
     color: #fff,
     blend-mode: hard-light,
-    shadow: 1px 1px 6px #53e8d4
+    shadow: 1px 1px 6px #EDB793
   ),
   background-primary: (
     color: #ffffffcc,
     backdrop-filter: blur(10px),
-    shadow: 1px 1px 12px #53e8d4
+    shadow: 1px 1px 12px #BAEB95
   ),
   foreground-primary: (
     color: #303030,
   ),
   background-accent: (
-    color: #53e8d4,
-    shadow: 1px 1px 24px #53e8d4
+    color: #E9EE91,
+    shadow: 1px 1px 24px #E9EE91
   ),
   foreground-accent: (
-    color: #8921c2,
+    color: #EDB793,
   ),
 );
 
