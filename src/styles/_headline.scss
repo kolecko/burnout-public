@@ -2,6 +2,6 @@
 
 @mixin styles() {
     @include fonts.font-family('bebas-neue', 400);
-    letter-spacing: 1rem;
-    font-size: 4rem;
+    font-size: 2rem;
+    text-align: center;
 }

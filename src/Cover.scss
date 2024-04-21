@@ -17,7 +17,8 @@ section.Cover {
   > div.title {
     display: inline-block;
     text-align: left;
-    margin-top: styles.layout-spacing(24);
+    margin-top: styles.layout-spacing(16);
+    margin-bottom: styles.layout-spacing(4);
 
     > h1, p {
       display: block;
@@ -35,7 +36,8 @@ section.Cover {
     > p {
       @include styles.palette-get-foreground(foreground-graphics);
       @include styles.fonts-font-family(roboto-condensed, 300);
-      font-size: 2rem;
+      font-size: 1.2rem;
+      text-align: center;
       transition: opacity .2s linear, height .2s linear;
 
       &.hidden {

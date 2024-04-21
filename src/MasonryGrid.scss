@@ -1,5 +1,13 @@
 div.MasonryGrid {
   display: flex;
   width: 100%;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+
+    div.MasonryColumn {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
 }

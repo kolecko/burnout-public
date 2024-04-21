@@ -1,12 +1,18 @@
 import './Section.scss';
 
-function Section({ title, children }: { title: string, children?: React.ReactNode }) {
+function Section({
+    title,
+    children,
+}: {
+    title: string;
+    children?: React.ReactNode;
+}) {
     return (
         <section className="Section">
-            <h2>{ title }</h2>
+            <h2>{title}</h2>
             {children}
         </section>
-    )
+    );
 }
 
 export default Section;

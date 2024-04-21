@@ -1,7 +1,7 @@
 @use 'styles/palette';
 
-article.MiniCard {
-    width: 50%;
+article.CardCell {
+    width: 100%;
     height: auto;
     @include palette.get-background('background-primary');
 }

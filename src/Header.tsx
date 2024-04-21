@@ -12,11 +12,13 @@ function Header() {
                 </li>
 
                 <li>
-                    <a href="#demo" className="primary">Live Demo</a>
+                    <a href="#demo" className="primary">
+                        Live Demo
+                    </a>
                 </li>
             </menu>
         </header>
-    )
+    );
 }
 
 export default Header;
