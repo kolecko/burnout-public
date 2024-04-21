@@ -2,12 +2,12 @@ import React from 'react';
 
 import './App.scss';
 import Card from './Card';
+import CardCell from './CardCell';
 import Chatbox from './Chatbox';
 import ContactForm from './ContactForm';
 import Cover from './Cover';
 import Header from './Header';
 import MasonryGrid from './MasonryGrid';
-import CardCell from './CardCell';
 import Section from './Section';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <div className="App">
             <Header />
             <Cover>
-                <Card title={"See it in action"}>
+                <Card title={'See it in action'}>
                     <Chatbox></Chatbox>
                 </Card>
             </Cover>

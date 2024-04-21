@@ -21,9 +21,11 @@ const calculateColumnsCount = (parentWidth: number) => {
         [768, 2],
     ];
 
-    return columnsCountBreakpoint
-        .reverse()
-        .find(([breakpoint]) => breakpoint <= parentWidth)?.[1] ?? 1;
+    return (
+        columnsCountBreakpoint
+            .reverse()
+            .find(([breakpoint]) => breakpoint <= parentWidth)?.[1] ?? 1
+    );
 };
 
 function MasonryGrid({ children }: { children: ReactNode }) {
@@ -40,21 +42,21 @@ function MasonryGrid({ children }: { children: ReactNode }) {
         const columnsCount = calculateColumnsCount(size?.width ?? 0);
 
         const tcolumns = cells.reduce((acc, cell, index) => {
-                const column = index % (columnsCount ?? 1);
-                acc[column] = [...acc[column], cell];
-                return acc;
-            },
-            Array(columnsCount).fill([])
-        );
+            const column = index % (columnsCount ?? 1);
+            acc[column] = [...acc[column], cell];
+            return acc;
+        }, Array(columnsCount).fill([]));
 
         setColumns(tcolumns);
     }, [size]);
 
     return (
         <div ref={target} className="MasonryGrid">
-            {
-                columns.map((column, index) => (<div className="MasonryColumn" key={index}>{column}</div>))
-            }
+            {columns.map((column, index) => (
+                <div className="MasonryColumn" key={index}>
+                    {column}
+                </div>
+            ))}
         </div>
     );
 }
